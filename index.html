@@ -3,10 +3,17 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Marker Clustering</title>
+    <!-- <title>Marker Clustering</title> -->
+    <title>Surf Map</title>
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div id="logo"></div>
+    <div id="menu"></div>
     <div id="map"></div>
 
     <script src="app.js"></script>
@@ -15,6 +22,58 @@
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy4fOFhCIidGY3J64D5GOxuei-SZyGm5Y&callback=initMap">
+    </script>
+    <script = type="text/babel">
+      var state = {
+        title: "All about React",
+        menu: ["map", "forecast", 'postings'],
+        footer: '(c) 2017'
+      }
+
+      // view function, creates a component, props is the parameter name {JSX in braces}
+      function Logo(props) {
+        return (
+          <h1>{props.title}</h1>
+        )
+      }
+
+      function Menu(props){
+        return (
+          <nav>
+            <ul>
+              {props.menu.map(function(item, index) {
+                 return <li key={index}>{item}</li>
+              })}
+          </ul>
+          </nav>
+        )
+      }
+
+      function Footer(props) {
+        return (
+          <h6>{props.footer}</h6>
+        )
+      }
+
+      var menuTarget = document.querySelector('#menu');
+      ReactDOM.render(
+        <Menu {...state} />,
+        menuTarget
+      );
+
+      var headerTarget = document.querySelector('#header');
+      ReactDOM.render(
+        <Header {...state} />,
+        headerTarget
+      )
+
+      var footerTarget = document.querySelector('#footer');
+      ReactDOM.render(
+        <Footer {...state} />,
+        footerTarget
+      )
+
+
     </script>
   </body>
 </html>

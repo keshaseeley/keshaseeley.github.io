@@ -1,11 +1,44 @@
+/*font-family: 'Lobster', cursive;
+font-family: 'Raleway', sans-serif;*/
+
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
 #map {
   height: 100%;
+  /*top: 10%;*/
 }
 /* Optional: Makes the sample page fill the window. */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+#header, #footer, #menu {
+text-align: center;
+}
+
+#menu {
+  font-family: 'Raleway', sans-serif;
+  background-color: #F3F3F6;
+  top: 0;
+}
+
+h1 {
+    padding: 0.2em;
+}
+
+#menu nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style-type: none;
+    padding: 1em;
+    background-color: #F3F3F6;
+    width: 150px;
+}
+nav ul li:hover {
+    background-color: #E4E6EB
 }
