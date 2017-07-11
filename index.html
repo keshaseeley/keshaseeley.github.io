@@ -3,77 +3,76 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <!-- <title>Marker Clustering</title> -->
-    <title>Surf Map</title>
-    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
-    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <title>Wave Finder</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Bootstrap JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <!-- Firebase CDN -->
+    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+
   </head>
   <body>
-    <div id="logo"></div>
-    <div id="menu"></div>
-    <div id="map"></div>
+    <div id="logo">
+      <h1>swell</h1>
+    </div>
+    <div id="menu">
+      <nav>
+        <ul>
+          <li id="navMap"><a href="index.html">map</a></li>
+          <li id="navPostings"><a href="#">postings</a></li>
+      </ul>
+      </nav>
+    </div>
+    <div id="map" class=""></div>
 
-    <script src="app.js"></script>
+    <div id="postings" class="container hidden">
+    <!-- <div id="popUp" class="hidden"> -->
+      <!-- <a href="#" class="closePopUp">X</a> -->
+      <div>
+        <div class="panel-group">
+          <div class="panel panel-primary">
+            <div class="panel-body">
+              <p>Discover a new favorite spot? Sharing is caring. Let us know!</p>
+              <form action="" id="message-form">
+                <div class="form-group">
+                  <label>What and where:</label>
+                  <textarea id="message" type="text" class="form-control" placeholder="Great break in Puerto Escondido, Mexico"></textarea>
+                </div>
+                <button class="btn">Post to board</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-group">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2>Postings</h2>
+            </div>
+            <div class="panel-body">
+              <ul class="message-board">
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      <!-- </div> -->
+    <!-- </div> -->
+    </div>
 
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy4fOFhCIidGY3J64D5GOxuei-SZyGm5Y&callback=initMap">
-    </script>
-    <script = type="text/babel">
-      var state = {
-        title: "All about React",
-        menu: ["map", "forecast", 'postings'],
-        footer: '(c) 2017'
-      }
-
-      // view function, creates a component, props is the parameter name {JSX in braces}
-      function Logo(props) {
-        return (
-          <h1>{props.title}</h1>
-        )
-      }
-
-      function Menu(props){
-        return (
-          <nav>
-            <ul>
-              {props.menu.map(function(item, index) {
-                 return <li key={index}>{item}</li>
-              })}
-          </ul>
-          </nav>
-        )
-      }
-
-      function Footer(props) {
-        return (
-          <h6>{props.footer}</h6>
-        )
-      }
-
-      var menuTarget = document.querySelector('#menu');
-      ReactDOM.render(
-        <Menu {...state} />,
-        menuTarget
-      );
-
-      var headerTarget = document.querySelector('#header');
-      ReactDOM.render(
-        <Header {...state} />,
-        headerTarget
-      )
-
-      var footerTarget = document.querySelector('#footer');
-      ReactDOM.render(
-        <Footer {...state} />,
-        footerTarget
-      )
-
-
     </script>
   </body>
 </html>
